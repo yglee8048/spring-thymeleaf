@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">회원정보 수정</h1>
+    <form th:action="@{/valid/form}" method="post">
+        <div class="form-group">
+            <label for="memberId"><strong>아이디</strong></label>
+            <input class="form-control" type="text" id="memberId" name="memberId" th:value="${member.memberId}">
+        </div>
+        <div class="form-group">
+            <label for="memberPw"><strong>비밀번호</strong></label>
+            <input class="form-control" type="password" id="memberPw" name="memberPw" th:value="${member.memberPw}"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="memberName"><strong>이름</strong></label>
+            <input class="form-control" type="text" id="memberName" name="memberName" th:value="${member.memberName}" required>
+        </div>
+        <div class="form-group">
+            <label for="point"><strong>포인트</strong></label>
+            <input class="form-control" type="number" id="point" name="point" th:value="${member.point}" disabled>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">수정하기</button>
+            <button type="button" class="btn btn-danger btn-lg btn-block" onclick="history.back()">취소</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>현재 시간 : <span th:text="${#temporals.format(today, 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+<p>오늘은 <span th:text="${#temporals.dayOfWeekName(today)}"></span> 입니다.</p>
+<p th:text="${#numbers.formatPercent(0.02, 0, 3)}"></p>
+<p th:text="${#strings.trim('    trim    ')}"></p>
+
+</body>
+</html>

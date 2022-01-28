@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>id : <span th:text="${member.memberId}">sample id</span></p>
+<p>pw : <span th:text="${member['memberPw']}">sample pw</span></p>
+<p>name : <span th:text="${member.getMemberName()}">sample name</span></p>
+<p>point : [[${member.point}]]</p>
+
+</body>
+</html>

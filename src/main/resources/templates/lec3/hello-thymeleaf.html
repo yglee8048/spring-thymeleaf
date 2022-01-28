@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>th 사용 : <span th:text="${data}">sample data</span></li>
+    <li>직접 : [[${data}]] </li>
+    <li>단순 문자열 : <span th:text="'Hello Thymeleaf!'">sample text</span></li> <!-- 문자열은 '' 로 감싸야 한다. -->
+    <li>문자열 연결 하기 : <span th:text="|Hello! ${data}|">sample text</span></li>
+</ul>
+
+</body>
+</html>
