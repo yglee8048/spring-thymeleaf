@@ -60,7 +60,11 @@ public class MemberController {
     }
 
     @GetMapping("/update")
-    public String updateForm(Model model, @SessionAttribute(name = SessionKey.MEMBER_ID) String memberId) {
+    public String updateForm(Model model, @SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             MemberDTO member = memberBiz.findById(memberId);
             model.addAttribute("member", member);
@@ -72,8 +76,12 @@ public class MemberController {
     }
 
     @PostMapping("/update")
-    public String update(@SessionAttribute(name = SessionKey.MEMBER_ID) String memberId,
+    public String update(@SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId,
                          @ModelAttribute MemberDTO member, HttpSession session, Model model) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             memberBiz.update(memberId, member.getMemberPw(), member.getMemberName());
             session.setAttribute(SessionKey.MEMBER_NAME, member.getMemberName());

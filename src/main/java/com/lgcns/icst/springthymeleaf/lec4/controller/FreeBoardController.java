@@ -39,13 +39,21 @@ public class FreeBoardController {
     }
 
     @GetMapping("/write")
-    public String freeBoardWriteForm(@ModelAttribute(name = "freeBoard") FreeBoardDTO freeBoard) {
+    public String freeBoardWriteForm(@SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId,
+                                     @ModelAttribute(name = "freeBoard") FreeBoardDTO freeBoard) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
         return "lec4/freeBoard/write";
     }
 
     @PostMapping("/write")
     public String write(@ModelAttribute FreeBoardDTO freeBoard,
-                        @SessionAttribute(name = SessionKey.MEMBER_ID) String memberId, Model model) {
+                        @SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId, Model model) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             freeBoardBiz.save(freeBoard.getContent(), memberId);
             return "redirect:/lec4/free-boards";
@@ -56,7 +64,12 @@ public class FreeBoardController {
     }
 
     @GetMapping("/{id}/update")
-    public String freeBoardUpdateForm(@PathVariable Long id, Model model) {
+    public String freeBoardUpdateForm(@SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId,
+                                      @PathVariable Long id, Model model) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             FreeBoardDTO freeBoard = freeBoardBiz.findFreeBoardById(id);
             model.addAttribute("freeBoard", freeBoard);
@@ -68,7 +81,12 @@ public class FreeBoardController {
     }
 
     @PostMapping("/{id}/update")
-    public String update(@PathVariable Long id, @ModelAttribute FreeBoardDTO freeBoard, Model model) {
+    public String update(@SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId,
+                         @PathVariable Long id, @ModelAttribute FreeBoardDTO freeBoard, Model model) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             freeBoardBiz.update(id, freeBoard.getContent());
             return "redirect:/lec4/free-boards";
@@ -79,7 +97,12 @@ public class FreeBoardController {
     }
 
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable Long id, Model model) {
+    public String delete(@SessionAttribute(name = SessionKey.MEMBER_ID, required = false) String memberId,
+                         @PathVariable Long id, Model model) {
+        if (memberId == null) {
+            return "redirect:/lec4/member/login";
+        }
+
         try {
             freeBoardBiz.delete(id);
             return "redirect:/lec4/free-boards";
