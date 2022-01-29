@@ -1,7 +1,7 @@
 package com.lgcns.icst.springthymeleaf.lec4.dao;
 
-import com.lgcns.icst.lecture.springstart.lec1.util.JdbcUtil;
 import com.lgcns.icst.springthymeleaf.lec4.entity.MemberEntity;
+import com.lgcns.icst.springthymeleaf.lec4.util.JdbcUtil;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -11,15 +11,6 @@ import java.sql.SQLException;
 
 @Repository
 public class MemberDAO {
-
-    private static MemberDAO instance;
-
-    public static MemberDAO getInstance() {
-        if (instance == null) {
-            instance = new MemberDAO();
-        }
-        return instance;
-    }
 
     public MemberEntity findMemberById(Connection connection, String memberId) throws SQLException {
         PreparedStatement preparedStatement = null;

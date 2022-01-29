@@ -1,10 +1,14 @@
 package com.lgcns.icst.springthymeleaf.lec4.dao;
 
-import com.lgcns.icst.lecture.springstart.lec1.entity.FreeBoardEntity;
-import com.lgcns.icst.lecture.springstart.lec1.util.JdbcUtil;
+import com.lgcns.icst.springthymeleaf.lec4.entity.FreeBoardEntity;
+import com.lgcns.icst.springthymeleaf.lec4.util.JdbcUtil;
 import org.springframework.stereotype.Repository;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.lgcns.icst.springthymeleaf.lec4.dto;
 
-import com.lgcns.icst.lecture.springstart.lec1.constant.MemberRank;
-import com.lgcns.icst.lecture.springstart.lec1.entity.MemberEntity;
+import com.lgcns.icst.springthymeleaf.lec4.constant.MemberRank;
+import com.lgcns.icst.springthymeleaf.lec4.entity.MemberEntity;
 
 public class MemberDTO {
 
@@ -45,8 +45,8 @@ public class MemberDTO {
         return rank.name();
     }
 
-    public void setRank(MemberRank rank) {
-        this.rank = rank;
+    public void setRank(String rank) {
+        this.rank = MemberRank.valueOf(rank);
     }
 
     public void setMemberId(String memberId) {

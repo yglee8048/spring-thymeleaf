@@ -7,15 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class LengthPointPolicy implements PointPolicy {
 
-    private static LengthPointPolicy instance;
-
-    public static LengthPointPolicy getInstance() {
-        if (instance == null) {
-            instance = new LengthPointPolicy();
-        }
-        return instance;
-    }
-
     @Override
     public int getPoint(String content) {
         if (content.length() > 20) {

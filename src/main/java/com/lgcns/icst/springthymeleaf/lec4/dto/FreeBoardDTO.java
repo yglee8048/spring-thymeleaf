@@ -1,6 +1,6 @@
 package com.lgcns.icst.springthymeleaf.lec4.dto;
 
-import com.lgcns.icst.lecture.springstart.lec1.entity.FreeBoardEntity;
+import com.lgcns.icst.springthymeleaf.lec4.entity.FreeBoardEntity;
 
 import java.sql.Date;
 

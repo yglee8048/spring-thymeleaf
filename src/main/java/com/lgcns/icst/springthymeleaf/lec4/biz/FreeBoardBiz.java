@@ -1,11 +1,11 @@
 package com.lgcns.icst.springthymeleaf.lec4.biz;
 
-import com.lgcns.icst.lecture.springstart.lec1.dao.FreeBoardDAO;
-import com.lgcns.icst.lecture.springstart.lec1.dao.MemberDAO;
-import com.lgcns.icst.lecture.springstart.lec1.dto.FreeBoardDTO;
-import com.lgcns.icst.lecture.springstart.lec1.entity.FreeBoardEntity;
-import com.lgcns.icst.lecture.springstart.lec1.entity.MemberEntity;
-import com.lgcns.icst.lecture.springstart.lec1.util.JdbcUtil;
+import com.lgcns.icst.springthymeleaf.lec4.dao.FreeBoardDAO;
+import com.lgcns.icst.springthymeleaf.lec4.dao.MemberDAO;
+import com.lgcns.icst.springthymeleaf.lec4.dto.FreeBoardDTO;
+import com.lgcns.icst.springthymeleaf.lec4.entity.FreeBoardEntity;
+import com.lgcns.icst.springthymeleaf.lec4.entity.MemberEntity;
+import com.lgcns.icst.springthymeleaf.lec4.util.JdbcUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

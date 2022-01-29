@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <title>게시판</title>
+</head>
+<body>
+<h2>게시판</h2>
+<div class="col-xs-12">
+    <div>
+        <p>
+            <strong>
+                <a th:href="@{/lec4/member/update}" th:text="${session.MEMBER_NAME}">회원 이름</a>
+            </strong> 님 안녕하세요.
+            <a th:href="@{/lec4/member/logout}">로그아웃</a>
+        </p>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>작성시간</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="freeBoard : ${freeBoards}">
+            <td th:text="${freeBoard.id}"></td>
+            <td th:text="${freeBoard.content}"></td>
+            <td th:text="${freeBoard.writerName}"></td>
+            <td th:text="${freeBoard.writeDate}"></td>
+            <td>
+                <button type="button" class="btn btn-success"
+                        th:onclick="|location.href='@{/lec4/free-boards/{id}/update (id=${freeBoard.id})}'|">
+                    수정
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger"
+                        th:onclick="|location.href='@{/lec4/free-boards/{id}/delete (id=${freeBoard.id})}'|">
+                    삭제
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/lec4/free-boards/write}'|">
+        글쓰기
+    </button>
+</div>
+</body>
+</html>

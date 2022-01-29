@@ -1,10 +1,10 @@
 package com.lgcns.icst.springthymeleaf.lec4.biz;
 
-import com.lgcns.icst.lecture.springstart.lec1.constant.MemberRank;
-import com.lgcns.icst.lecture.springstart.lec1.dao.MemberDAO;
-import com.lgcns.icst.lecture.springstart.lec1.dto.MemberDTO;
-import com.lgcns.icst.lecture.springstart.lec1.entity.MemberEntity;
-import com.lgcns.icst.lecture.springstart.lec1.util.JdbcUtil;
+import com.lgcns.icst.springthymeleaf.lec4.constant.MemberRank;
+import com.lgcns.icst.springthymeleaf.lec4.dao.MemberDAO;
+import com.lgcns.icst.springthymeleaf.lec4.dto.MemberDTO;
+import com.lgcns.icst.springthymeleaf.lec4.entity.MemberEntity;
+import com.lgcns.icst.springthymeleaf.lec4.util.JdbcUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +20,6 @@ public class MemberBiz {
     public MemberBiz(MemberDAO memberDAO, RankPolicy rankPolicy) {
         this.memberDAO = memberDAO;
         this.rankPolicy = rankPolicy;
-    }
-
-    public MemberDAO getMemberDAO() {
-        return memberDAO;
     }
 
     public MemberDTO login(String memberId, String memberPw) throws Exception {
@@ -79,7 +75,7 @@ public class MemberBiz {
             }
 
             MemberDTO memberDTO = new MemberDTO(member);
-            memberDTO.setRank(rank);
+            memberDTO.setRank(rank.name());
 
             return memberDTO;
 

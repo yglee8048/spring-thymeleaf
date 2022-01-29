@@ -1,8 +1,8 @@
 package com.lgcns.icst.springthymeleaf.lec4.biz;
 
-import com.lgcns.icst.lecture.springstart.lec1.constant.MemberRank;
-import com.lgcns.icst.lecture.springstart.lec1.dao.MemberDAO;
-import com.lgcns.icst.lecture.springstart.lec1.entity.MemberEntity;
+import com.lgcns.icst.springthymeleaf.lec4.constant.MemberRank;
+import com.lgcns.icst.springthymeleaf.lec4.dao.MemberDAO;
+import com.lgcns.icst.springthymeleaf.lec4.entity.MemberEntity;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +12,7 @@ import java.sql.Connection;
 @Service
 public class RelativeRankPolicy implements RankPolicy {
 
-    private static RelativeRankPolicy instance;
     private MemberDAO memberDAO;
-
-    public static RelativeRankPolicy getInstance(MemberDAO memberDAO) {
-        if (instance == null) {
-            instance = new RelativeRankPolicy(memberDAO);
-        }
-        return instance;
-    }
 
     public RelativeRankPolicy(MemberDAO memberDAO) {
         this.memberDAO = memberDAO;
