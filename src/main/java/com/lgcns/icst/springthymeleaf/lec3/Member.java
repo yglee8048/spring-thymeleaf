@@ -1,10 +1,9 @@
 package com.lgcns.icst.springthymeleaf.lec3;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 
-public class MemberEntity {
+public class Member {
 
     @NotEmpty(message = "아이디는 필수 값입니다.")
     @Max(value = 8, message = "아이디는 최대 8글자입니다.")
@@ -13,7 +12,7 @@ public class MemberEntity {
     private String memberName;
     private Integer point;
 
-    public MemberEntity(String memberId, String memberPw, String memberName, Integer point) {
+    public Member(String memberId, String memberPw, String memberName, Integer point) {
         this.memberId = memberId;
         this.memberPw = memberPw;
         this.memberName = memberName;

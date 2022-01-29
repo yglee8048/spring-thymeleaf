@@ -19,12 +19,12 @@ public class ValidationController {
 
     @GetMapping("/form")
     public String form(Model model) {
-        model.addAttribute("member", new MemberEntity("id", "pw", "name", 1));
+        model.addAttribute("member", new Member("id", "pw", "name", 1));
         return "lec4/validation-test";
     }
 
     @PostMapping("/form")
-    public String validTest(@Validated @ModelAttribute MemberEntity memberEntity) {
+    public String validTest(@Validated @ModelAttribute Member member) {
         return "/lec4/validation-test";
     }
 

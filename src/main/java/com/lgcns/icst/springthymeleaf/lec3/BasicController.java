@@ -22,16 +22,16 @@ public class BasicController {
 
     @GetMapping("/member")
     public String member(Model model) {
-        MemberEntity memberEntity = new MemberEntity("id", "pw", "name", 0);
-        model.addAttribute("member", memberEntity);
+        Member member = new Member("id", "pw", "name", 0);
+        model.addAttribute("member", member);
         return "lec3/member";
     }
 
     @GetMapping("/for-if")
     public String forIf(Model model) {
-        List<MemberEntity> members = Arrays.asList(
-                new MemberEntity("id", "pw", "name", 10),
-                new MemberEntity("id2", "pw2", "name2", 20));
+        List<Member> members = Arrays.asList(
+                new Member("id", "pw", "name", 10),
+                new Member("id2", "pw2", "name2", 20));
 
         model.addAttribute("members", members);
         return "lec3/sample-table";
