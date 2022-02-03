@@ -11,8 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hello")
-public class BasicController {
+@RequestMapping("/lec3")
+public class ThymeleafController {
 
     @GetMapping("/hello-thymeleaf")
     public String textBasic(Model model) {
@@ -34,7 +34,7 @@ public class BasicController {
                 new Member("id2", "pw2", "name2", 20));
 
         model.addAttribute("members", members);
-        return "lec3/sample-table";
+        return "lec3/for-if";
     }
 
     @GetMapping("/basic-object")
@@ -55,5 +55,11 @@ public class BasicController {
     public String others(Model model) {
         model.addAttribute("today", LocalDateTime.now());
         return "lec3/others";
+    }
+
+    @GetMapping("/form")
+    public String formTest(Model model) {
+        model.addAttribute("member", new Member("id", "pw", "이름", 0));
+        return "lec3/update";
     }
 }
