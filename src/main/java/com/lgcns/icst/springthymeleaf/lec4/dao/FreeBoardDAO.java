@@ -133,4 +133,41 @@ public class FreeBoardDAO {
             JdbcUtil.close(preparedStatement);
         }
     }
+
+    public List<FreeBoardEntity> findFreeBoardsByOptionalWriterId(Connection connection, String optionalWriterId) throws SQLException {
+        List<FreeBoardEntity> result = new ArrayList<>();
+
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            // 쿼리
+            String sql = "SELECT ID, CONTENT, WRITER_ID, WRITE_DATE FROM FREE_BOARD ";
+            if (optionalWriterId != null) {
+                sql += "WHERE WRITER_ID = ? ";
+            }
+            sql += "ORDER BY ID DESC";
+            // Statement 생성
+            preparedStatement = connection.prepareStatement(sql);
+            if (optionalWriterId != null) {
+                preparedStatement.setString(1, optionalWriterId);
+            }
+
+            // 쿼리 수행
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                long id = resultSet.getLong("ID");
+                String content = resultSet.getString("CONTENT");
+                String writerId = resultSet.getString("WRITER_ID");
+                Date writeDate = resultSet.getDate("WRITE_DATE");
+
+                result.add(new FreeBoardEntity(id, content, writerId, writeDate));
+            }
+            return result;
+
+        } finally {
+            // 생성한 역순으로 반환(close)한다.
+            JdbcUtil.close(resultSet);
+            JdbcUtil.close(preparedStatement);
+        }
+    }
 }

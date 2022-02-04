@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpSession;
@@ -31,12 +32,13 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO member, HttpSession session, Model model) {
+    public String login(@ModelAttribute MemberDTO member, HttpSession session, Model model,
+                        @RequestParam(required = false, defaultValue = "/lec4/free-boards") String redirectURI) {
         try {
             member = memberBiz.login(member.getMemberId(), member.getMemberPw());
             session.setAttribute(SessionKey.MEMBER_NAME, member.getMemberName());
             session.setAttribute(SessionKey.MEMBER_ID, member.getMemberId());
-            return "redirect:/lec4/free-boards";
+            return "redirect:" + redirectURI;
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "lec4/errorPage";
