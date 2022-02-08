@@ -1,8 +1,9 @@
 server:
+  port: 8080
   servlet:
     context-path: /spring-th
+
   error:
-    include-binding-errors: never
     include-message: never
     include-stacktrace: never
     include-exception: false
@@ -10,8 +11,11 @@ server:
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@ics-t-development.cztekutconfc.ap-northeast-2.rds.amazonaws.com:1521:ORCL
-    username: root
-    password: icstroot
+    url: jdbc:oracle:thin:@10.100.70.7:1521:XE
+    username: student##
+    password: student##
     hikari:
       auto-commit: false
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
