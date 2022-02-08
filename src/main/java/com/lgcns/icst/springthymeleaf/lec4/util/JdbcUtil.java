@@ -1,6 +1,5 @@
 package com.lgcns.icst.springthymeleaf.lec4.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@Slf4j
 @Component
 public class JdbcUtil {
 
@@ -28,18 +26,18 @@ public class JdbcUtil {
     public static void commit(Connection connection) throws SQLException {
         if (connection != null) {
             connection.commit();
-            log.debug("JdbcUtils.commit: Commit!");
+            System.out.println("JdbcUtils.commit: Commit!");
         } else {
-            log.warn("JdbcUtils.commit: connection is null!");
+            System.out.println("JdbcUtils.commit: connection is null!");
         }
     }
 
     public static void rollback(Connection connection) throws SQLException {
         if (connection != null) {
             connection.rollback();
-            log.debug("JdbcUtils.rollback: Rollback!");
+            System.out.println("JdbcUtils.rollback: Rollback!");
         } else {
-            log.warn("JdbcUtils.rollback: connection is null!");
+            System.out.println("JdbcUtils.rollback: connection is null!");
         }
     }
 
@@ -48,7 +46,7 @@ public class JdbcUtil {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("Error occurred during closing connection : {}", e.getMessage(), e);
+                e.printStackTrace();
             }
         }
     }
@@ -58,7 +56,7 @@ public class JdbcUtil {
             try {
                 preparedStatement.close();
             } catch (SQLException e) {
-                log.error("Error occurred during closing preparedStatement : {}", e.getMessage(), e);
+                e.printStackTrace();
             }
         }
     }
@@ -68,7 +66,7 @@ public class JdbcUtil {
             try {
                 resultSet.close();
             } catch (SQLException e) {
-                log.error("Error occurred during closing resultSet : {}", e.getMessage(), e);
+                e.printStackTrace();
             }
         }
     }
