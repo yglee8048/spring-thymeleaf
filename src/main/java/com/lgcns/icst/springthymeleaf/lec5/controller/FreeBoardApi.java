@@ -1,4 +1,4 @@
-package com.lgcns.icst.springthymeleaf.lec5;
+package com.lgcns.icst.springthymeleaf.lec5.controller;
 
 import com.lgcns.icst.springthymeleaf.lec4.biz.FreeBoardBiz;
 import com.lgcns.icst.springthymeleaf.lec4.dto.FreeBoardDTO;

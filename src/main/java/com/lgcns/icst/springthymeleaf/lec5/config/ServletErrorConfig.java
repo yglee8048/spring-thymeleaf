@@ -1,4 +1,4 @@
-package com.lgcns.icst.springthymeleaf.lec5;
+package com.lgcns.icst.springthymeleaf.lec5.config;
 
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.ErrorPage;

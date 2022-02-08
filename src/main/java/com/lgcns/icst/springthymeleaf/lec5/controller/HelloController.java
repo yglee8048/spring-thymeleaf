@@ -1,4 +1,4 @@
-package com.lgcns.icst.springthymeleaf.lec5;
+package com.lgcns.icst.springthymeleaf.lec5.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;

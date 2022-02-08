@@ -1,4 +1,4 @@
-package com.lgcns.icst.springthymeleaf.lec5;
+package com.lgcns.icst.springthymeleaf.lec5.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
